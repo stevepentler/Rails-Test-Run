@@ -17,8 +17,7 @@ class LiftsController < ApplicationController
   end 
 
   def show
-    @resort = Resort.find(params[:resort_id])
-    @lifts = @resort.lifts.all
+    @lift = Lift.find(params[:id])
   end 
 
   private 

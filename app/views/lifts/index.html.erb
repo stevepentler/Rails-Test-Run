@@ -1,6 +1,6 @@
 <ol>
   <% @lifts.each do |lift| %>
-    <li><%= lift.name %></li>
+    <li><%= link_to lift.name, lift %></li>
   <%end%>
 </ol>
 

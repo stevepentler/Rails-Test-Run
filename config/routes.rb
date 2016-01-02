@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :resorts do 
-    resources :lifts
+    resources :lifts, only: [:new, :create, :index]
   end
 
-  # resources :lifts, only: [:show]
+  resources :lifts, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
