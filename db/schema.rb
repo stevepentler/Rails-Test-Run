@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160102202736) do
+ActiveRecord::Schema.define(version: 20160102205336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lifts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "seats"
+    t.integer  "resort_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "lifts", ["resort_id"], name: "index_lifts_on_resort_id", using: :btree
 
   create_table "resorts", force: :cascade do |t|
     t.string   "name"
@@ -27,4 +37,5 @@ ActiveRecord::Schema.define(version: 20160102202736) do
     t.datetime "updated_at",                  null: false
   end
 
+  add_foreign_key "lifts", "resorts"
 end

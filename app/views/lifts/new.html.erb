@@ -1,0 +1,11 @@
+<h1>New Lift</h1>
+<h5>Add a new lift for <%= @resort.name %></h5> 
+<%= form_for ([@resort, @lift]) do |f| %>
+  <%= f.label :name %> 
+  <%= f.text_field :name %> 
+
+  <%= f.label :seats %>
+  <%= f.text_field :seats %> 
+
+  <%= f.submit %>
+<% end %> 

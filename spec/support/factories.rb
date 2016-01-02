@@ -7,4 +7,9 @@ FactoryGirl.define do
     rating  9
     review  "Steamboat rocks!"
   end
+
+  factory :lift do 
+    name "Excelerator"
+    seats 6
+  end
 end

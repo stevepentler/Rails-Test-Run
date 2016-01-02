@@ -5,5 +5,6 @@
 <ul>
   <li><%= link_to "Edit Resort", edit_resort_path(@resort) %></li>
   <li><%= link_to "Delete", resort_path(@resort), method: :delete %></li>
+  <%= link_to "Add Lift", new_resort_lift_path(@resort) %>
   <li><%= link_to "Home", resorts_path %></li>
 </ul>
