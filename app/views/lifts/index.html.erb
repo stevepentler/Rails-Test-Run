@@ -1,3 +1,5 @@
+<h1>Lifts at <%= @resort.name %></h1>
+
 <ol>
   <% @lifts.each do |lift| %>
     <li>
@@ -11,3 +13,5 @@
   <li><%= link_to "Add Lift", new_resort_lift_path(@resort) %></li>
   <li><%= link_to "Home", resorts_path %></li>
 </ul>
+
+<%= image_tag @resort.trail_map_path %>
