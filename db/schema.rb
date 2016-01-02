@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160101235726) do
+ActiveRecord::Schema.define(version: 20160102202736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20160101235726) do
     t.string   "image_path"
     t.string   "trail_map_path"
     t.integer  "average_season_accumulation"
-    t.integer  "total_accumulation"
-    t.integer  "total_base"
     t.integer  "rating"
     t.string   "review"
     t.datetime "created_at",                  null: false
