@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :resorts do 
-    resources :lifts, only: [:new, :create, :index]
+    resources :lifts, except: [:show]
   end
 
   resources :lifts, only: [:show]

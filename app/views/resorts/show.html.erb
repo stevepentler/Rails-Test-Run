@@ -3,9 +3,11 @@
 <h3> Average Yearly Snow Accumulation: <%= @resort.average_season_accumulation %> inches</h3> 
 
 <ul>
-  <li><%= link_to "Edit Resort", edit_resort_path(@resort) %></li>
-  <li><%= link_to "Delete", resort_path(@resort), method: :delete %></li>
   <li><%= link_to "View Lifts", resort_lifts_path(@resort) %></li>
-  <li><%= link_to "Add Lift", new_resort_lift_path(@resort) %></li>
-  <li><%= link_to "Home", resorts_path %></li>
+  <li><%= link_to "Edit Resort", edit_resort_path(@resort) %></li>
+  <li><%= link_to "All Resorts", resorts_path %></li>
+</ul>
+
+<ul>
+  <li><%= link_to "Delete", resort_path(@resort), method: :delete %></li>
 </ul>

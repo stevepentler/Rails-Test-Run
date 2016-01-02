@@ -1,5 +1,6 @@
 class LiftsController < ApplicationController 
-  before_action :set_resort, only: [:index, :new, :create]
+  before_action :set_resort, only: [:index, :new, :create, :update]
+  before_action :set_lift, only: [:show, :edit, :update, :destroy]
   def index
     @lifts = @resort.lifts.all
   end 
@@ -10,11 +11,26 @@ class LiftsController < ApplicationController
 
   def create 
     @lift = @resort.lifts.create(lift_params)
-    redirect_to lift_path(@lift)
+    redirect_to lifts_path
   end 
 
   def show
-    @lift = Lift.find(params[:id])
+  end 
+
+  def edit
+  end 
+
+  def update
+    if @lift.update(lift_params)
+      redirect_to lifts_path
+    else 
+      render :edit
+    end
+  end 
+
+  def destroy 
+    @lift.destroy
+    redirect_to lifts_path
   end 
 
   private 
@@ -25,5 +41,9 @@ class LiftsController < ApplicationController
 
   def set_resort
     @resort = Resort.find(params[:resort_id])
+  end
+
+  def set_lift
+    @lift = Lift.find(params[:id])
   end
 end
