@@ -21,13 +21,12 @@ RSpec.feature "User submits a new resort" do
     fill_in "resort_total_accumulation", with: resort_total_accumulation
     fill_in "resort_total_base", with: resort_total_base
     fill_in "resort_rating", with: resort_rating
-    fill_in "review", with: resort_review
+    fill_in "resort_review", with: resort_review
     
     click_on "Create Resort"
 
-    visit resorts_path
-    expect(page).to have_content resort_name
     expect(page).to have_css("img[src=\"#{resort_image_path}\"]")
+    save_and_open_page
   end
 
 end
