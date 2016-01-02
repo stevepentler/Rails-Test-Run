@@ -1,18 +1,15 @@
 class LiftsController < ApplicationController 
+  before_action :set_resort, only: [:index, :new, :create]
   def index
-    @resort = Resort.find(params[:resort_id])
     @lifts = @resort.lifts.all
   end 
 
   def new
-    @resort = Resort.find(params[:resort_id])
     @lift = @resort.lifts.new
   end
 
   def create 
-    @resort = Resort.find(params[:resort_id])
     @lift = @resort.lifts.create(lift_params)
-
     redirect_to lift_path(@lift)
   end 
 
@@ -25,4 +22,8 @@ class LiftsController < ApplicationController
   def lift_params
     params.require(:lift).permit(:name, :seats)
   end 
+
+  def set_resort
+    @resort = Resort.find(params[:resort_id])
+  end
 end
