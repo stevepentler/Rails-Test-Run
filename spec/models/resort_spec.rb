@@ -8,9 +8,7 @@ require 'rails_helper'
       it { is_expected.to validate_uniqueness_of(:image_path) }
       it { is_expected.to validate_presence_of(:trail_map_path) }
       it { is_expected.to validate_uniqueness_of(:trail_map_path) }
-      it { is_expected.to validate_presence_of(:total_accumulation) }
       it { is_expected.to validate_presence_of(:average_season_accumulation) }
-      it { is_expected.to validate_presence_of(:total_base) }
       it { is_expected.to validate_presence_of(:rating) }
       it { is_expected.to validate_presence_of(:review) }
     end
