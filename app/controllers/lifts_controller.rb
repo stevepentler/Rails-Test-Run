@@ -1,4 +1,9 @@
 class LiftsController < ApplicationController 
+  def index
+    @resort = Resort.find(params[:resort_id])
+    @lifts = @resort.lifts.all
+  end 
+
   def new
     @resort = Resort.find(params[:resort_id])
     @lift = @resort.lifts.new
