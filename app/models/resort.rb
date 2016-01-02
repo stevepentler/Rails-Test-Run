@@ -1,5 +1,5 @@
 class Resort < ActiveRecord::Base
-  has_many :lifts
+  has_many :lifts, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   validates :image_path, presence: true, uniqueness: true
   validates :trail_map_path, presence: true, uniqueness: true

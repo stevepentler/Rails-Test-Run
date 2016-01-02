@@ -1,31 +1,3 @@
 <h1>Edit Resort</h1>
 
-<%= form_for(@resort) do |f| %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :image_path %>
-  <%= f.text_field :image_path %>
-
-  <%= f.label :trail_map_path %>
-  <%= f.text_field :trail_map_path %>
-
-  <%= f.label :average_season_accumulation %>
-  <%= f.text_field :average_season_accumulation %>
-
-  <%= f.label :total_accumulation %>
-  <%= f.text_field :total_accumulation %>
-
-  <%= f.label :total_base %>
-  <%= f.text_field :total_base %>
-
-  <%= f.label :rating %>
-  <%= f.text_field :rating %>
-
-  <%= f.label :review %>
-  <%= f.text_field :review %>
-
-  <%= f.submit %>
-
-<% end %>
+<%= render partial: "form" %> 
