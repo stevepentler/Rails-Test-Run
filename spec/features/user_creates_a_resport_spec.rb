@@ -12,7 +12,7 @@ RSpec.feature "User submits a new resort" do
     resort_review = "Steamboat rocks!"
     
     visit resorts_path
-    click_on "New resort"
+    click_on "New Resort"
     
     fill_in "resort_name", with: resort_name
     fill_in "resort_image_path", with: resort_image_path
