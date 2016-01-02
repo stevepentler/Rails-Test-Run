@@ -1,3 +1,8 @@
 <h1>All Resorts</h1>
+<ol>
+<% @resorts.each do |resort| %> 
+  <li> <%= link_to resort.name, resort %> </li>
+  <% end %>
+</ol>
 
 <%= link_to "New resort", new_resort_path %>

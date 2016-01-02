@@ -1,6 +1,7 @@
 class ResortsController < ApplicationController
+  before_action :set_resort, only: [:show, :edit, :update, :destroy]
   def index
-    @resort = Resort.all
+    @resorts = Resort.all
   end
 
   def new
@@ -17,7 +18,22 @@ class ResortsController < ApplicationController
   end
 
   def show
-    @resort = Resort.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @resort.update(resort_params)
+     redirect_to @resort
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @resort.destroy
+    redirect_to resorts_path
   end
 
   private 
@@ -25,4 +41,8 @@ class ResortsController < ApplicationController
   def resort_params
     params.require(:resort).permit(:name, :image_path, :trail_map_path, :average_season_accumulation, :total_accumulation, :total_base, :rating, :review)
   end 
+
+  def set_resort
+    @resort = Resort.find(params[:id])
+  end
 end

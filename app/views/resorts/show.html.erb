@@ -1,3 +1,8 @@
 <h1><%= image_tag @resort.image_path %></h1>
 <h3> Overall Rating: <%= @resort.rating %> </h3>
 <h3> Average Yearly Snow Accumulation: <%= @resort.average_season_accumulation %> inches</h3> 
+
+<ul>
+  <li><%= link_to "Edit Resort", edit_resort_path(@resort) %></li>
+  <li><%= link_to "Delete", resort_path(@resort), method: :delete %></li>
+</ul>

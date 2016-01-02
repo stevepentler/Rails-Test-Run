@@ -26,7 +26,6 @@ RSpec.feature "User submits a new resort" do
     click_on "Create Resort"
 
     expect(page).to have_css("img[src=\"#{resort_image_path}\"]")
-    save_and_open_page
   end
 
 end
