@@ -1,8 +1,10 @@
 class ResortsController < ApplicationController
   def index
+    @resort = Resort.all
   end
 
   def new
+    @resort = Resort.new
   end
 
   def create
