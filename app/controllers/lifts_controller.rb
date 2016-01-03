@@ -11,7 +11,7 @@ class LiftsController < ApplicationController
 
   def create 
     @lift = @resort.lifts.create(lift_params)
-    redirect_to lifts_path
+    redirect_to resort_lifts_path
   end 
 
   def show
@@ -30,7 +30,7 @@ class LiftsController < ApplicationController
 
   def destroy 
     @lift.destroy
-    redirect_to_lifts_path
+    redirect_to resort_lifts_path
   end 
 
   private 
