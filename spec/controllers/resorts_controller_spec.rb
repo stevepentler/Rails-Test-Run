@@ -56,5 +56,17 @@ RSpec.describe ResortsController, type: :controller do
         expect(response).to redirect_to(Resort.last)
       end
     end
+
+    context "with invalid params" do
+      it "assigns a newly created but unsaved resort as @resort" do
+        post :create, {:resort => attributes_for(:resort, name: nil)}
+        expect(assigns(:resort)).to be_a_new(Resort)
+      end
+
+      it "re-renders the 'new' template" do
+        post :create, {:resort => attributes_for(:resort, name: nil)}
+        expect(response).to render_template("new")
+      end
+    end
   end
 end
