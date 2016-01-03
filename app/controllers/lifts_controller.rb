@@ -30,7 +30,7 @@ class LiftsController < ApplicationController
 
   def destroy 
     @lift.destroy
-    redirect_to lifts_path
+    redirect_to_lifts_path
   end 
 
   private 

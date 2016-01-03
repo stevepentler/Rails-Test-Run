@@ -6,8 +6,7 @@ RSpec.feature "User submits a new lift" do
 
     lift_name = "Excelerator"
     lift_seats = 4
-
-    visit resort_path(resort)
+    visit resort_lifts_path(resort.id)
     click_on "Add Lift"
     fill_in "lift_name", with: lift_name
     fill_in "lift_seats", with: lift_seats
