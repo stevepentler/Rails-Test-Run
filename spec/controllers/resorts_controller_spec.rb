@@ -37,5 +37,24 @@ RSpec.describe ResortsController, type: :controller do
     end 
   end
 
+  describe "POST #create" do
+    context "with valid params" do
+      it "creates a new resort" do
+        expect {
+          post :create, {:resort => attributes_for(:resort)}
+        }.to change(Resort, :count).by(1)
+      end
 
+      it "assigns a newly created resort as @resort" do
+        post :create, {:resort => attributes_for(:resort)}
+        expect(assigns(:resort)).to be_a(Resort)
+        expect(assigns(:resort)).to be_persisted
+      end
+
+      it "redirects to the created resort" do
+        post :create, {:resort => attributes_for(:resort)}
+        expect(response).to redirect_to(Resort.last)
+      end
+    end
+  end
 end
