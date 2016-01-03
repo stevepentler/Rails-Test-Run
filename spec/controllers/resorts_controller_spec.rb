@@ -69,4 +69,18 @@ RSpec.describe ResortsController, type: :controller do
       end
     end
   end
+
+
+  describe "POST #update" do 
+    context "with valid params" do 
+      it "updates the resort" do 
+        resort = create(:resort)
+        put :update, {:id => resort.to_param, :resort => attributes_for(:resort, name: "new_name")}
+        resort.reload
+        expect(resort.name).to eq("new_name")
+      end
+    end 
+  end
+
+
 end
