@@ -20,4 +20,22 @@ RSpec.describe ResortsController, type: :controller do
       expect(response).to render_template("show")
     end
   end
+
+  describe "GET #new" do 
+    it "assigns a new resort to @resort" do 
+      resort = create(:resort)
+      get(:new)
+      expect(assigns(:resort)).to be_a_new(Resort)
+    end
+  end
+
+  describe "GET #edit" do 
+    it "assigns the requested resort as @resort" do 
+      resort = create(:resort)
+      get(:edit, {:id => resort.to_param})
+      expect(assigns(:resort)).to eq(resort)
+    end 
+  end
+
+
 end
