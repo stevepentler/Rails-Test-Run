@@ -3,5 +3,6 @@
 
 <ul>
   <li><%= link_to @lift.resort.name, resort_path(@lift.resort) %>
+  <li><%= link_to "Edit Lift", edit_resort_lift_path(@lift) %> 
   <li><%= link_to "Delete Lift", lift_path(@lift), method: :delete %>
 </ul>
