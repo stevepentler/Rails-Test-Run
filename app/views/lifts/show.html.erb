@@ -1,7 +1,7 @@
 <h1><%= @lift.name %></h1>
 <h3><%= @lift.seats %> Seats</h3>
 
- <li><%= link_to "Delete Lift", resort_path(@resort), method: :delete %></li>
+<ul>
+  <li><%= link_to @lift.resort.name, resort_path(@lift.resort) %>
+  <li><%= link_to "Delete Lift", lift_path(@lift), method: :delete %>
 </ul>
-
-<%= link_to @lift.resort.name, resort_path(@lift.resort) %>

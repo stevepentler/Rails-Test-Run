@@ -1,6 +1,6 @@
 class LiftsController < ApplicationController 
   before_action :set_resort, only: [:index, :new, :create, :update, :edit]
-  before_action :set_lift, only: [:show]
+  before_action :set_lift, only: [:show, :destroy]
   def index
     @lifts = @resort.lifts.all
   end 
