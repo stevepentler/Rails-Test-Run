@@ -71,16 +71,41 @@ RSpec.describe ResortsController, type: :controller do
   end
 
 
-  describe "POST #update" do 
-    context "with valid params" do 
-      it "updates the resort" do 
+  describe "PUT #update" do
+    context "with valid params" do
+      it "updates the requested resort" do
         resort = create(:resort)
-        put :update, {:id => resort.to_param, :resort => attributes_for(:resort, name: "new_name")}
+        put :update, {:id => resort.to_param, :resort => attributes_for(:resort, name: "New name")}
         resort.reload
-        expect(resort.name).to eq("new_name")
+        expect(resort.name).to eq("New name")
       end
-    end 
+
+      it "assigns the requested resort as @resort" do
+        resort = create(:resort)
+        put :update, {:id => resort.to_param, :resort => attributes_for(:resort, name: "New name")}
+        expect(assigns(:resort)).to eq(resort)
+      end
+
+      it "redirects to the resort" do
+        resort = create(:resort)
+        put :update, {:id => resort.to_param, :resort => attributes_for(:resort, name: "New name")}
+        expect(response).to redirect_to(resort)
+      end
+    end
+
+    context "with invalid params" do
+      it "assigns the resort as @resort" do
+        resort = create(:resort)
+        put :update, {:id => resort.to_param, :resort => attributes_for(:resort, name: nil)}
+        expect(assigns(:resort)).to eq(resort)
+      end
+
+      it "re-renders the 'edit' template" do
+        resort = create(:resort)
+        put :update, {:id => resort.to_param, :resort => attributes_for(:resort, name: nil)}
+        expect(response).to render_template("edit")
+      end
+    end
   end
-
-
 end
+
