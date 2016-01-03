@@ -11,4 +11,13 @@ RSpec.describe ResortsController, type: :controller do
       expect(response).to render_template("index")
     end
   end
+
+  describe "GET #show" do
+    it "assigns the requested resort as @resort and renders the show template" do
+      resort = create(:resort)
+      get(:show, {:id => resort.to_param})
+      expect(assigns(:resort)).to eq(resort)
+      expect(response).to render_template("show")
+    end
+  end
 end
