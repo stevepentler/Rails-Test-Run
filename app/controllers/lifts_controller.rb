@@ -1,5 +1,5 @@
 class LiftsController < ApplicationController 
-  before_action :set_resort, only: [:index, :new, :create, :update, :edit]
+  before_action :set_resort, only: [:index, :new, :create]
   before_action :set_lift, only: [:show, :destroy, :edit, :update]
   def index
     @lifts = @resort.lifts.all
@@ -22,7 +22,7 @@ class LiftsController < ApplicationController
 
   def update
     if @lift.update(lift_params)
-      redirect_to lifts_path
+      redirect_to resort_lifts_path
     else 
       render :edit
     end
