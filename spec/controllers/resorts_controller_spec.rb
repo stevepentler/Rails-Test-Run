@@ -107,5 +107,23 @@ RSpec.describe ResortsController, type: :controller do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+    it "destroys the requested resort" do
+      resort = create(:resort)
+      expect {
+        delete :destroy, {:id => resort.to_param}
+      }.to change(Resort, :count).by(-1)
+    end
+
+    it "redirects to the resorts list" do
+      resort = create(:resort)
+      delete :destroy, {:id => resort.to_param}
+      expect(response).to redirect_to(resorts_path)
+    end
+  end
+
+
+
 end
 
